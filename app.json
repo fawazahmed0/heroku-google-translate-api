@@ -1,0 +1,6 @@
+{
+  "name": "Google Translate Heroku",
+  "description": "A Google Translater",
+  "image": "heroku/python",
+  "repository": "https://github.com/fawazahmed0/google-translate-heroku",
+}
