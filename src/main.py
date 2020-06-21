@@ -1,11 +1,9 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from googletrans import Translator
 from fastapi.middleware.cors import CORSMiddleware
-#import httpx
-#import json
+import json
 
 app = FastAPI()
-
 
 # https://fastapi.tiangolo.com/tutorial/cors/
 
@@ -17,18 +15,64 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
-
+# This is only for testing out that heroku works
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
 
 
-#https://www.tutlinks.com/create-and-deploy-fastapi-app-to-heroku/
-#https://fastapi.tiangolo.com/tutorial/first-steps/
-@app.get("/translate/")
-async def queryTraslate(query=''):
+
+@app.post("/translateposttext/")
+async def queryTranslatePosttext(request: Request):
+    req = await request.body()
+    req = json.loads(req)
+
+    translator = Translator()
+    # Return if body is empty
+    if not req:
+        return ''
+    try:
+        return translator.translate(req).text
+    except:
+        raise HTTPException(
+            status_code=404, detail="translate api doesn't seem to work")
+
+@app.post("/translatepostfull/")
+async def queryTranslatePostJSON(request: Request):
+    req = await request.body()
+    req = json.loads(req)
+
+    translator = Translator()
+    # Return if body is empty
+    if not req:
+        return ''
+    try:
+        return translator.translate(req)
+    except:
+        raise HTTPException(
+            status_code=404, detail="translate api doesn't seem to work")
+
+
+
+
+@app.get("/translategetfull/")
+async def queryTranslateGetJSON(query=''):
+    translator = Translator()
+    # Return if query is empty
+    if not query:
+        return ''
+    try:
+        return translator.translate(query)
+    except:
+        raise HTTPException(
+            status_code=404, detail="translate api doesn't seem to work")
+
+
+
+# https://www.tutlinks.com/create-and-deploy-fastapi-app-to-heroku/
+# https://fastapi.tiangolo.com/tutorial/first-steps/
+@app.get("/translategettext/")
+async def queryTranslateGetText(query=''):
     translator = Translator()
     # Return if query is empty
     if not query:
@@ -36,9 +80,10 @@ async def queryTraslate(query=''):
     try:
         return translator.translate(query).text
     except:
-        raise HTTPException(status_code=404, detail="translate api doesn't work")
-#@app.get("/headers/")
-#async def read_items(request: Request):
+        raise HTTPException(
+            status_code=404, detail="translate api doesn't seem to work")
+# @app.get("/headers/")
+# async def read_items(request: Request):
 #    header = dict(request.headers)
 #    header.pop("origin", None)
 #    header.pop("referer", None)
@@ -50,7 +95,7 @@ async def queryTraslate(query=''):
 
 #abc = '["1","2","3"]'
 #k = json.loads(abc)
-#print(k[0])
+# print(k[0])
 #    import httpx
 #    r = httpx.get('https://www.google.com/search?q=how+to+repair+a+mouse',headers=header)
 
@@ -64,7 +109,7 @@ async def queryTraslate(query=''):
 #    return Response(content=r.text, headers=r.headers)
 #    return Response
 #    r.headers['Access-Control-Allow-Origin'] = '*'
-##    if r.headers['content-type'].startswith('text/'):
+# if r.headers['content-type'].startswith('text/'):
 #        return Response(content=r.text, media_type="text/html")
 #    return ""
 #    return Response(r)
@@ -77,4 +122,4 @@ async def queryTraslate(query=''):
 
 #import httpx
 #r = httpx.get('https://www.google.com/search?q=how+to+repair+a+computer+chair')
-#print(r.text)
+# print(r.text)
