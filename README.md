@@ -8,10 +8,10 @@ This api will auto detect the language and translate it into english, if you wan
 2. Signup and you will get a url something like: https://calm-boy-84008.herokuapp.com ,  note it down
 
 **API Endpoints:**
-Use `/translategettext` endpoint if you have small text to translate and only want translated text
-Use `/translategetfull` endpoint if you have small text to translate and JSON response with other details
-Use `/translateposttext` endpoint if you have any length text to translate and only want translated text
-Use `/translatepostfull` endpoint if you have any length text to translate and JSON response with other details:
+- Use `/translategettext` endpoint if you have small text to translate and only want translated text
+- Use `/translategetfull` endpoint if you have small text to translate and JSON response with other details
+- Use `/translateposttext` endpoint if you have any length text to translate and only want translated text
+- Use `/translatepostfull` endpoint if you have any length text to translate and JSON response with other details
 
 **Example 1:**
 ```javascript
@@ -24,6 +24,7 @@ var text = 'لا أعرف لماذا'
 ```
 
 **Output in Console:**
+
 `"I do not know why"`
 
 **Example 2:**
@@ -128,6 +129,7 @@ var text = 'لا أعرف لماذا'
 ```
 
 **Output in Console:**
+
 `"I do not know why"`
 
 **Example 4:**
