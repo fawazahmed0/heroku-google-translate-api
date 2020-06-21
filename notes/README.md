@@ -10,7 +10,7 @@ https://fastapi.tiangolo.com/tutorial/first-steps/
 https://www.tutlinks.com/create-and-deploy-fastapi-app-to-heroku/
 
 you only have to use 'heroku create' once in the new repo, then deploy the app with changes 'git push heroku master'
-you can connect the app with github in apps settings (but don't do it, the environment link will then show up in github, if you did that by mistake just refer Remove enviroment from github repo.txt) (manually deploy code using heroku cli, instruction is there at app settings ,deploy)
+you can connect the app with github in apps settings (but don't do it, the environment link will then show up in github, if you did that by mistake just refer Remove enviroment from github repo.txt) (manually deploy code using heroku cli, instruction is there at app settings ,deploy, refer sync github repo into heroku.txt)
 https://devcenter.heroku.com/articles/github-integration
 
 
