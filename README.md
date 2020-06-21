@@ -1,7 +1,7 @@
 # Google Translate API using Heroku
 This is a free google translate api using [Heroku](https://github.com/heroku/python-getting-started "Heroku"), [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/ "FastAPI") , [Googletrans](https://github.com/ssut/py-googletrans "Googletrans")  
 
-This api will auto detect the language and translate it into english, if you want to manually assign the source and destination language, you will have to modify the code a little bit. Please refer the above links if you intend to add that functionality.
+This api will auto detect the language and translate it into english (under the hood it uses [Googletrans](https://github.com/ssut/py-googletrans "Googletrans")), if you want to manually assign the source and destination language, you will have to modify the code a little bit. Please refer the above links if you intend to add that functionality.
 
 **Steps to setup:**
 1. Click at [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
