@@ -13,7 +13,7 @@ This api will auto detect the language and translate it into english(under the h
 - Use `/translateposttext` endpoint if you have any length text to translate and only want translated text
 - Use `/translatepostfull` endpoint if you have any length text to translate and JSON response with other details
 
-**Below examples in javascript:**
+**Below examples in Javascript:**
 
 **Example 1:**
 ```javascript
