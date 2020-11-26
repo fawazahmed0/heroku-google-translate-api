@@ -3,7 +3,7 @@ from google_trans_new import google_translator
 from fastapi.middleware.cors import CORSMiddleware
 import json
 
-translator = google_translator()  
+
 
 app = FastAPI()
 
@@ -31,7 +31,7 @@ async def root():
 # https://fastapi.tiangolo.com/tutorial/first-steps/
 @app.get("/translategettext/")
 async def queryTranslateGetText(query=''):
-    translator = Translator()
+    translator = google_translator()  
     # Return if query is empty
     if not query:
         return ''
@@ -44,7 +44,7 @@ async def queryTranslateGetText(query=''):
 
 @app.get("/translategetfull/")
 async def queryTranslateGetJSON(query=''):
-    translator = Translator()
+   translator = google_translator()  
     # Return if query is empty
     if not query:
         return ''
@@ -60,7 +60,7 @@ async def queryTranslatePosttext(request: Request):
     req = await request.body()
     req = json.loads(req)
 
-    translator = Translator()
+    translator = google_translator()  
     # Return if body is empty
     if not req:
         return ''
@@ -76,7 +76,7 @@ async def queryTranslatePostJSON(request: Request):
     req = await request.body()
     req = json.loads(req)
 
-    translator = Translator()
+    translator = google_translator()  
     # Return if body is empty
     if not req:
         return ''
