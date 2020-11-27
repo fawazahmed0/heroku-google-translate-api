@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, Request
-from googletrans import Translator
+from google_trans_new import google_translator  
 from fastapi.middleware.cors import CORSMiddleware
 import json
 
@@ -27,12 +27,12 @@ async def root():
 # https://fastapi.tiangolo.com/tutorial/first-steps/
 @app.get("/translategettext/")
 async def queryTranslateGetText(query=''):
-    translator = Translator()
+    translator = google_translator()
     # Return if query is empty
     if not query:
         return ''
     try:
-        return translator.translate(query).text
+        return translator.translate(query,lang_tgt='en')
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
@@ -40,12 +40,12 @@ async def queryTranslateGetText(query=''):
 
 @app.get("/translategetfull/")
 async def queryTranslateGetJSON(query=''):
-    translator = Translator()
+    translator = google_translator()
     # Return if query is empty
     if not query:
         return ''
     try:
-        return translator.translate(query)
+        return translator.translate(query,lang_tgt='en')
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
@@ -56,12 +56,12 @@ async def queryTranslatePosttext(request: Request):
     req = await request.body()
     req = json.loads(req)
 
-    translator = Translator()
+    translator = google_translator()
     # Return if body is empty
     if not req:
         return ''
     try:
-        return translator.translate(req).text
+        return translator.translate(req,lang_tgt='en')
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
@@ -72,12 +72,12 @@ async def queryTranslatePostJSON(request: Request):
     req = await request.body()
     req = json.loads(req)
 
-    translator = Translator()
+    translator = google_translator()
     # Return if body is empty
     if not req:
         return ''
     try:
-        return translator.translate(req)
+        return translator.translate(req,lang_tgt='en')
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
