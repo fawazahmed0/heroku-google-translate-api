@@ -1,3 +1,5 @@
 google_trans_new
 uvicorn
 fastapi
+requests
+six
