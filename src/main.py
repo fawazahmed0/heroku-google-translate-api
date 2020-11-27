@@ -1,9 +1,7 @@
 from fastapi import FastAPI, HTTPException, Request
-from google_trans_new import google_translator  
+from googletrans import Translator
 from fastapi.middleware.cors import CORSMiddleware
 import json
-
-translator = google_translator()  
 
 app = FastAPI()
 
@@ -25,8 +23,6 @@ async def root():
     return {"message": "Hello World"}
 
 
-
-
 # https://www.tutlinks.com/create-and-deploy-fastapi-app-to-heroku/
 # https://fastapi.tiangolo.com/tutorial/first-steps/
 @app.get("/translategettext/")
@@ -36,7 +32,7 @@ async def queryTranslateGetText(query=''):
     if not query:
         return ''
     try:
-        return translator.translate(query,lang_tgt='en') 
+        return translator.translate(query).text
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
@@ -49,7 +45,7 @@ async def queryTranslateGetJSON(query=''):
     if not query:
         return ''
     try:
-        return translator.translate(query,lang_tgt='en') 
+        return translator.translate(query)
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
@@ -65,7 +61,7 @@ async def queryTranslatePosttext(request: Request):
     if not req:
         return ''
     try:
-        return translator.translate(req,lang_tgt='en') 
+        return translator.translate(req).text
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
@@ -81,7 +77,7 @@ async def queryTranslatePostJSON(request: Request):
     if not req:
         return ''
     try:
-        return translator.translate(req,lang_tgt='en') 
+        return translator.translate(req)
     except:
         raise HTTPException(
             status_code=404, detail="translate api doesn't seem to work")
