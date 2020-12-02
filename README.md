@@ -1,7 +1,7 @@
 # Google Translate API using Heroku
-This is a free google translate api using [Heroku](https://github.com/heroku/python-getting-started "Heroku"), [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/ "FastAPI") , [Googletrans](https://github.com/ssut/py-googletrans "Googletrans")  
+This is a free google translate api using [Heroku](https://github.com/heroku/python-getting-started "Heroku"), [FastAPI](https://fastapi.tiangolo.com/tutorial/first-steps/ "FastAPI") , [google-trans-new](https://github.com/lushan88a/google_trans_new)  
 
-This api will auto detect the language and translate it into english(under the hood it uses [Googletrans](https://github.com/ssut/py-googletrans "Googletrans")), if you want to manually assign the source and destination language, you will have to modify the code a little bit. Please refer the above links if you intend to add that functionality.
+This api will auto detect the language and translate it into english(under the hood it uses [google-trans-new](https://github.com/lushan88a/google_trans_new)), if you want to manually assign the source and destination language, you will have to modify the code a little bit. Please refer the above links if you intend to add that functionality.
 
 **Steps to setup:**
 1. Click at [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)        
@@ -40,82 +40,7 @@ var text = 'لا أعرف لماذا'
 ```
 
 **Output in Console:**
-```json
-{
-  "src": "ar",
-  "dest": "en",
-  "origin": "لا أعرف لماذا",
-  "text": "I do not know why",
-  "pronunciation": null,
-  "extra_data": {
-    "translation": [
-      [
-        "I do not know why",
-        "لا أعرف لماذا",
-        null,
-        null,
-        1
-      ],
-      [
-        null,
-        null,
-        null,
-        "la 'aerif limadha"
-      ]
-    ],
-    "all-translations": null,
-    "original-language": "ar",
-    "possible-translations": [
-      [
-        "لا أعرف لماذا",
-        null,
-        [
-          [
-            "I do not know why",
-            1000,
-            true,
-            false
-          ],
-          [
-            "I don't know why",
-            0,
-            true,
-            false
-          ]
-        ],
-        [
-          [
-            0,
-            13
-          ]
-        ],
-        "لا أعرف لماذا",
-        0,
-        0
-      ]
-    ],
-    "confidence": 1,
-    "possible-mistakes": null,
-    "language": [
-      [
-        "ar"
-      ],
-      null,
-      [
-        1
-      ],
-      [
-        "ar"
-      ]
-    ],
-    "synonyms": null,
-    "definitions": null,
-    "examples": null,
-    "see-also": null
-  }
-}
-
-```
+`"I do not know why"`
 
 **Example 3:**
 ```javascript
@@ -149,79 +74,4 @@ var text = 'لا أعرف لماذا'
 
 
 **Output in Console:**
-```json
-{
-  "src": "ar",
-  "dest": "en",
-  "origin": "لا أعرف لماذا",
-  "text": "I do not know why",
-  "pronunciation": null,
-  "extra_data": {
-    "translation": [
-      [
-        "I do not know why",
-        "لا أعرف لماذا",
-        null,
-        null,
-        1
-      ],
-      [
-        null,
-        null,
-        null,
-        "la 'aerif limadha"
-      ]
-    ],
-    "all-translations": null,
-    "original-language": "ar",
-    "possible-translations": [
-      [
-        "لا أعرف لماذا",
-        null,
-        [
-          [
-            "I do not know why",
-            1000,
-            true,
-            false
-          ],
-          [
-            "I don't know why",
-            0,
-            true,
-            false
-          ]
-        ],
-        [
-          [
-            0,
-            13
-          ]
-        ],
-        "لا أعرف لماذا",
-        0,
-        0
-      ]
-    ],
-    "confidence": 1,
-    "possible-mistakes": null,
-    "language": [
-      [
-        "ar"
-      ],
-      null,
-      [
-        1
-      ],
-      [
-        "ar"
-      ]
-    ],
-    "synonyms": null,
-    "definitions": null,
-    "examples": null,
-    "see-also": null
-  }
-}
-
-```
+`"I do not know why"`
